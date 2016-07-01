@@ -27,10 +27,10 @@
  */
 \OCP\App::registerAdmin('files', 'admin');
 
+$urlGenerator = \OC::$server->getURLGenerator();
+$l = \OC::$server->getL10N('files');
 
-\OC::$server->getNavigationManager()->add(function () {
-	$urlGenerator = \OC::$server->getURLGenerator();
-	$l = \OC::$server->getL10N('files');
+\OC::$server->getNavigationManager()->add(function () use ($urlGenerator, $l) {
 	return [
 		'id' => 'files_index',
 		'order' => 0,
@@ -48,14 +48,23 @@ $templateManager->registerTemplate('application/vnd.oasis.opendocument.presentat
 $templateManager->registerTemplate('application/vnd.oasis.opendocument.text', 'core/templates/filetemplates/template.odt');
 $templateManager->registerTemplate('application/vnd.oasis.opendocument.spreadsheet', 'core/templates/filetemplates/template.ods');
 
-\OCA\Files\App::getNavigationManager()->add(function () {
-	$l = \OC::$server->getL10N('files');
+\OCA\Files\App::getNavigationManager()->add(function () use ($l) {
 	return [
 		'id' => 'files',
 		'appname' => 'files',
 		'script' => 'list.php',
 		'order' => 0,
 		'name' => $l->t('All files'),
+	];
+});
+
+\OCA\Files\App::getNavigationManager()->add(function () use ($l) {
+	return [
+		'id' => 'recent',
+		'appname' => 'files',
+		'script' => 'list.php',
+		'order' => 2,
+		'name' => $l->t('Recent'),
 	];
 });
 

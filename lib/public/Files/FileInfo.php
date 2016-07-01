@@ -58,6 +58,11 @@ interface FileInfo {
 	const SPACE_UNLIMITED = -3;
 
 	/**
+	 * @since 9.1.0
+	 */
+	const MIMETYPE_FOLDER = 'httpd/unix-directory';
+
+	/**
 	 * Get the Etag of the file or folder
 	 *
 	 * @return string

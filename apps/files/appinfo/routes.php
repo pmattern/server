@@ -50,6 +50,11 @@ $application->registerRoutes(
 				'requirements' => array('tagName' => '.+'),
 			),
 			array(
+				'name' => 'API#getRecentFiles',
+				'url' => '/api/v1/recent/',
+				'verb' => 'GET'
+			),
+			array(
 				'name' => 'API#updateFileSorting',
 				'url' => '/api/v1/sorting',
 				'verb' => 'POST'
