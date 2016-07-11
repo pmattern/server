@@ -58,6 +58,8 @@ class ApiControllerTest extends TestCase {
 	private $shareManager;
 	/** @var \OCP\IConfig */
 	private $config;
+	/** @var  \OC\Files\Node\Folder */
+	private $userFolder;
 
 	public function setUp() {
 		$this->request = $this->getMockBuilder('\OCP\IRequest')
@@ -81,6 +83,9 @@ class ApiControllerTest extends TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 		$this->config = $this->getMock('\OCP\IConfig');
+		$this->userFolder = $this->getMockBuilder('\OC\Files\Node\Folder')
+			->disableOriginalConstructor()
+			->getMock();
 
 		$this->apiController = new ApiController(
 			$this->appName,
@@ -89,7 +94,8 @@ class ApiControllerTest extends TestCase {
 			$this->tagService,
 			$this->preview,
 			$this->shareManager,
-			$this->config
+			$this->config,
+			$this->userFolder
 		);
 	}
 
