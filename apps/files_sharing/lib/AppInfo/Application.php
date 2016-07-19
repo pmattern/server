@@ -33,7 +33,6 @@ use OCA\Files_Sharing\Controllers\ExternalSharesController;
 use OCA\Files_Sharing\Controllers\ShareController;
 use OCA\Files_Sharing\Middleware\SharingCheckMiddleware;
 use \OCP\IContainer;
-use OCA\Files_Sharing\Capabilities;
 
 class Application extends App {
 	public function __construct(array $urlParams = array()) {
